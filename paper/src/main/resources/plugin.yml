@@ -1,0 +1,8 @@
+name: PaperPlugin
+version: '${project.version}'
+main: tech.wiktor.plugins.customizer.paper.PaperPlugin
+api-version: '1.19'
+authors: [yCode.ovh Team]
+description: The plugin with gui, commands and recipes creator
+website: https://ycode.ovh
+softdepend: [PlaceholderAPI]
