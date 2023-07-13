@@ -6,8 +6,9 @@ import eu.okaeri.injector.annotation.Inject;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import tech.wiktor.plugins.customizer.paper.factory.ConfigurationFactory;
 import tech.wiktor.plugins.customizer.paper.modules.inventories.configuration.InventoryConfiguration;
+import tech.wiktor.plugins.customizer.shared.factory.ConfigurationFactory;
+import tech.wiktor.plugins.customizer.shared.factory.FactoryPlatform;
 import xyz.xenondevs.invui.window.Window;
 
 import java.util.HashMap;
@@ -15,12 +16,12 @@ import java.util.HashMap;
 public class InventoryService {
     @Inject private Injector injector;
     @Inject private Plugin plugin;
-    private HashMap<String, InventoryConfiguration> inventoryConfigurations = new HashMap<>();
+    private final HashMap<String, InventoryConfiguration> inventoryConfigurations = new HashMap<>();
 
     public void saveConfig(String name) {
         ConfigurationFactory configurationFactory = new ConfigurationFactory(this.plugin.getDataFolder());
         if (this.inventoryConfigurations.containsKey(name)) return;
-        this.inventoryConfigurations.put(name, configurationFactory.produce(InventoryConfiguration.class, "inventories/"+name));
+        this.inventoryConfigurations.put(name, configurationFactory.produce(FactoryPlatform.PAPER, InventoryConfiguration.class, "inventories/"+name));
     }
 
     public void reload(CommandSender sender) {

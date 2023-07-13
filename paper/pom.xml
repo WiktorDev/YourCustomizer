@@ -90,14 +90,20 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>eu.okaeri</groupId>
-            <artifactId>okaeri-configs-yaml-bukkit</artifactId>
-            <version>3.3.6</version>
-        </dependency>
-        <dependency>
-            <groupId>eu.okaeri</groupId>
-            <artifactId>okaeri-configs-serdes-bukkit</artifactId>
-            <version>3.2.0</version>
+            <groupId>tech.wiktor.plugins.customizer.shared</groupId>
+            <artifactId>shared</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>eu.okaeri</groupId>
+                    <artifactId>okaeri-configs-yaml-snakeyaml</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>eu.okaeri</groupId>
+                    <artifactId>okaeri-configs-yaml-bungee</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>eu.okaeri</groupId>
